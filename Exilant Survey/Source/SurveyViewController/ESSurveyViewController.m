@@ -20,6 +20,8 @@
 
 @synthesize surveyDetailsDict = surveyDetailsDict_;
 
+@synthesize delegate = delegate_;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,11 +42,9 @@
     
     self.questionViewsArray = [NSMutableArray array];
     
-    [self createQuestionViewForQuestionNumber:0];
+    //Create the view for 1st question
     
-    UIView *view = [[self.questionViewsArray lastObject] view];
-	
-    [self.view insertSubview:view atIndex:0];
+    [self createAndDisplayQuestionViewForQuestionNumber:0];
 }
 
 -(void)dealloc
@@ -74,6 +74,7 @@
 
 - (IBAction)closeSurvey:(id)sender
 {
+    [self.delegate userClosedSurvey];
 }
 
 - (IBAction)finishSurvey:(id)sender
@@ -91,8 +92,9 @@
 #pragma mark -
 #pragma mark Helper Methods
 
--(void)createQuestionViewForQuestionNumber:(int)inQuestionNumber
+-(void)createAndDisplayQuestionViewForQuestionNumber:(int)inQuestionNumber
 {
+    
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     
     ESQuestionViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"QuestionView"];
@@ -106,6 +108,14 @@
     [viewController.view addSubview:view];
     
     [self.questionViewsArray addObject:viewController];
+    
+    
+    
+    currentlyDisplayedQuestion_ = inQuestionNumber;
+	
+    [self.view insertSubview:viewController.view atIndex:0];
+    
+    [viewController release];
 }
 
 -(void)updateUIWithUserPreferencesForSurvey

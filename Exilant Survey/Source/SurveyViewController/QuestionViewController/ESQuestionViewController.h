@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ESQuestionViewController : UIViewController
+{
+    NSNumber *questionNumber_;
+}
+
+@property (retain, nonatomic) NSNumber *questionNumber;
 
 @property (retain, nonatomic) IBOutlet UITextView *questionField;
 

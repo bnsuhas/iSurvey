@@ -301,54 +301,6 @@
         <image name="rounded_table_cell_bottom@2x.png" width="928" height="66"/>
         <image name="rounded_table_cell_top@2x.png" width="928" height="66"/>
     </resources>
-    <classes>
-        <class className="ESQuestionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ESQuestionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="optionsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="questionField" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="ESSurveyDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ESSurveyDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startSurvey:"/>
-                <relationship kind="outlet" name="completedSurveys" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="graphView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="incompleteSurveys" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numberOfRespondents" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ESSurveyListTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ESSurveyListTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="surveyInfo" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="surveyStatus" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="surveyStatusBackGround" candidateClass="UIView"/>
-                <relationship kind="outlet" name="surveyTitle" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ESSurveyListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ESSurveyListViewController.h"/>
-        </class>
-        <class className="ESSurveyViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ESSurveyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeSurvey:"/>
-                <relationship kind="action" name="finishSurvey:"/>
-                <relationship kind="action" name="nextQuestion:"/>
-                <relationship kind="action" name="previousQuestion:"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="bottomToolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="finishButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="surveyProgressView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="topToolBar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

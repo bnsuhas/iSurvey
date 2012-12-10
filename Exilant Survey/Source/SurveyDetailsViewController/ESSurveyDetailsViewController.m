@@ -7,7 +7,6 @@
 //
 
 #import "ESSurveyDetailsViewController.h"
-#import "ESSurveyViewController.h"
 
 @interface ESSurveyDetailsViewController ()
 
@@ -73,17 +72,33 @@
     
 }
 
+#pragma mark -
+#pragma mark View Controller Delegate Methods
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSString *masterListPath = [[NSBundle mainBundle] pathForResource:@"Surveys_Master_List" ofType:@"plist"];
-    
-    NSDictionary *masterList = [NSDictionary dictionaryWithContentsOfFile:masterListPath];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:[masterList valueForKey:self.selectedSurveyName] ofType:@"plist"];
-    
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-    
-    [(ESSurveyViewController *)segue.destinationViewController setSurveyDetailsDict:dict];
+    if([segue.destinationViewController isKindOfClass:[ESSurveyViewController class]])
+    {
+        NSString *masterListPath = [[NSBundle mainBundle] pathForResource:@"Surveys_Master_List" ofType:@"plist"];
+        
+        NSDictionary *masterList = [NSDictionary dictionaryWithContentsOfFile:masterListPath];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:[masterList valueForKey:self.selectedSurveyName] ofType:@"plist"];
+        
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+        
+        [(ESSurveyViewController *)segue.destinationViewController setSurveyDetailsDict:dict];
+        
+        [(ESSurveyViewController *)segue.destinationViewController setDelegate:self];
+    }
+}
+
+#pragma mark -
+#pragma mark ESSurveyViewControllerDelegate Methods
+
+-(void)userClosedSurvey
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -

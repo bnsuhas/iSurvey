@@ -14,10 +14,13 @@
 
 @implementation ESQuestionViewController
 
+@synthesize questionNumber = questionNumber_;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -35,7 +38,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
+    self.questionNumber = nil;
+    
     [_questionField release];
     [_optionsView release];
     [_backgroundImageView release];

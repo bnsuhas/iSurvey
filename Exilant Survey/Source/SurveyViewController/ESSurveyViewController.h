@@ -8,15 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ESSurveyViewControllerDelegate <NSObject>
+
+-(void)userClosedSurvey;
+
+@end
+
 @interface ESSurveyViewController : UIViewController
 {
     NSMutableArray *questionViewsArray_;
     
     NSDictionary *surveyDetailsDict_;
+    
+    int currentlyDisplayedQuestion_;
+    
+    id<ESSurveyViewControllerDelegate> delegate_;
 }
 
 @property(nonatomic, retain) NSMutableArray *questionViewsArray;
 @property(nonatomic, retain) NSDictionary *surveyDetailsDict;
+@property(nonatomic, assign) id<ESSurveyViewControllerDelegate> delegate;
 
 @property (retain, nonatomic) IBOutlet UIProgressView *surveyProgressView;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *nextButton;
@@ -31,7 +42,7 @@
 - (IBAction)nextQuestion:(id)sender;
 - (IBAction)previousQuestion:(id)sender;
 
--(void)createQuestionViewForQuestionNumber:(int)inQuestionNumber;
+-(void)createAndDisplayQuestionViewForQuestionNumber:(int)inQuestionNumber;
 -(void)updateUIWithUserPreferencesForSurvey;
 
 @end

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ESSurvey.h"
+#import "ESSurveyViewController.h"
 
-@interface ESSurveyDetailsViewController : UIViewController
+@interface ESSurveyDetailsViewController : UIViewController<ESSurveyViewControllerDelegate>
 {
     NSString *selectedSurveyName_;
     

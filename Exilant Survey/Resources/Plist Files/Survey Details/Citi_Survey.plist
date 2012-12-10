@@ -7,7 +7,7 @@
 	<key>Logo</key>
 	<string>Citi</string>
 	<key>NavigatonBarColor</key>
-	<string>#99ccff</string>
+	<string>#cccccc</string>
 	<key>FontSize</key>
 	<integer>14</integer>
 	<key>FontColor</key>
