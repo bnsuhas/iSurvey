@@ -7,6 +7,7 @@
 //
 
 #import "ESQuestionViewController.h"
+#import "ESQuestionFactory.h"
 
 @interface ESQuestionViewController ()
 
@@ -46,5 +47,22 @@
     [_optionsView release];
     [_backgroundImageView release];
     [super dealloc];
+}
+
+-(void)prepareWithQuestionAndOptionsForDetails:(NSDictionary *)inDetailsDictionary usingFont:(UIFont *)inFont andFontColor:(UIColor *)inFontColor
+{
+    UIView *view = [ESQuestionFactory questionViewForDetails:inDetailsDictionary];
+    
+    view.frame = CGRectMake(400, 250, 500, 500);
+    
+    self.view.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height - 40);
+    
+    [self.view addSubview:view];
+    
+    self.questionField.font = inFont;
+    
+    self.questionField.textColor = inFontColor;
+    
+    self.questionField.text = [inDetailsDictionary valueForKey:@"Question"];
 }
 @end

@@ -15,7 +15,7 @@
 {
     ESCustomButtonsView *customView = [[[ESCustomButtonsView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
     
-    [customView createCustomButtonsForOptions:[[inQuestionDetailsDictionary valueForKey:@"Options"] valueForKey:@"Title"] isRadionButton:YES];
+    [customView createCustomButtonsForOptions:[[inQuestionDetailsDictionary valueForKey:@"Options"] valueForKey:@"Title"] isRadionButton:NO];
     
     return customView;
 }

@@ -20,6 +20,10 @@
     
     NSDictionary *surveyDetailsDict_;
     
+    UIFont *surveyFont_;
+    
+    UIColor *surveyFontColor_;
+    
     int currentlyDisplayedQuestion_;
     
     id<ESSurveyViewControllerDelegate> delegate_;
@@ -27,6 +31,8 @@
 
 @property(nonatomic, retain) NSMutableArray *questionViewsArray;
 @property(nonatomic, retain) NSDictionary *surveyDetailsDict;
+@property(nonatomic, retain) UIFont *surveyFont;
+@property(nonatomic, retain) UIColor *surveyFontColor;
 @property(nonatomic, assign) id<ESSurveyViewControllerDelegate> delegate;
 
 @property (retain, nonatomic) IBOutlet UIProgressView *surveyProgressView;

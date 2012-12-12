@@ -8,7 +8,7 @@
 
 #import "ESSurveyViewController.h"
 #import "ESQuestionViewController.h"
-#import "ESQuestionFactory.h"
+#import "ESUtilities.h"
 
 @interface ESSurveyViewController ()
 
@@ -17,9 +17,9 @@
 @implementation ESSurveyViewController
 
 @synthesize questionViewsArray = questionViewsArray_;
-
 @synthesize surveyDetailsDict = surveyDetailsDict_;
-
+@synthesize surveyFont = surveyFont_;
+@synthesize surveyFontColor = surveyFontColor_;
 @synthesize delegate = delegate_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,6 +42,10 @@
     
     self.questionViewsArray = [NSMutableArray array];
     
+    self.surveyFont = [UIFont fontWithName:[self.surveyDetailsDict valueForKey:@"Font"] size:[[self.surveyDetailsDict valueForKey:@"FontSize"] floatValue]];
+    
+    self.surveyFontColor = [ESUtilities colorFromHexString:[self.surveyDetailsDict valueForKey:@"FontColor"]];
+    
     //Create the view for 1st question
     
     [self createAndDisplayQuestionViewForQuestionNumber:0];
@@ -50,6 +54,8 @@
 -(void)dealloc
 {
     self.questionViewsArray = nil;
+    self.surveyDetailsDict = nil;
+    self.surveyFont = nil;
     self.surveyDetailsDict = nil;
     
     [_surveyProgressView release];
@@ -94,22 +100,14 @@
 
 -(void)createAndDisplayQuestionViewForQuestionNumber:(int)inQuestionNumber
 {
-    
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     
     ESQuestionViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"QuestionView"];
     
-    UIView *view = [ESQuestionFactory questionViewForDetails:[[self.surveyDetailsDict valueForKey:@"Questions"] objectAtIndex:inQuestionNumber]];
-    
-    view.frame = CGRectMake(400, 250, 500, 500);
-    
-    viewController.view.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height - 40);
-    
-    [viewController.view addSubview:view];
+    [viewController prepareWithQuestionAndOptionsForDetails:[[self.surveyDetailsDict valueForKey:@"Questions"] objectAtIndex:inQuestionNumber]
+     usingFont:self.surveyFont andFontColor:self.surveyFontColor];
     
     [self.questionViewsArray addObject:viewController];
-    
-    
     
     currentlyDisplayedQuestion_ = inQuestionNumber;
 	

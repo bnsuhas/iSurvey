@@ -21,4 +21,6 @@
 
 @property (retain, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
+-(void)prepareWithQuestionAndOptionsForDetails:(NSDictionary *)inDetailsDictionary usingFont:(UIFont *)inFont andFontColor:(UIColor *)inFontColor;
+
 @end

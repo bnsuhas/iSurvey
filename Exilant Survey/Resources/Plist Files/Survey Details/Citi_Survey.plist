@@ -8,10 +8,12 @@
 	<string>Citi</string>
 	<key>NavigatonBarColor</key>
 	<string>#cccccc</string>
+	<key>Font</key>
+	<string>Georgia</string>
 	<key>FontSize</key>
-	<integer>14</integer>
+	<integer>26</integer>
 	<key>FontColor</key>
-	<string>White</string>
+	<string>#000000</string>
 	<key>ProgressBarColor</key>
 	<string>Blue</string>
 	<key>Questions</key>
@@ -22,24 +24,24 @@
 			<key>FlowType</key>
 			<integer>0</integer>
 			<key>Question</key>
-			<string></string>
+			<string>Are you interested in our product?</string>
 			<key>Options</key>
 			<array>
 				<dict>
 					<key>Title</key>
-					<string></string>
+					<string>Yes</string>
 				</dict>
 				<dict>
 					<key>Title</key>
-					<string></string>
+					<string>No</string>
 				</dict>
 				<dict>
 					<key>Title</key>
-					<string></string>
+					<string>Can&apos;t say</string>
 				</dict>
 				<dict>
 					<key>Title</key>
-					<string></string>
+					<string>Don&apos;t want to say</string>
 				</dict>
 			</array>
 			<key>BackgroundImage</key>
