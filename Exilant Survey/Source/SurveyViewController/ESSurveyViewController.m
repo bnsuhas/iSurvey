@@ -38,6 +38,10 @@
 {
     [super viewDidLoad];
     
+    [self.backButton setEnabled:NO];
+    
+    maxQuestionsInSurvey_ = [[self.surveyDetailsDict valueForKey:@"Questions"] count];
+    
     [self updateUIWithUserPreferencesForSurvey];
     
     self.questionViewsArray = [NSMutableArray array];
@@ -49,6 +53,8 @@
     //Create the view for 1st question
     
     [self createAndDisplayQuestionViewForQuestionNumber:0];
+    
+    [self updateSurveyProgress];
 }
 
 -(void)dealloc
@@ -89,10 +95,30 @@
 
 - (IBAction)nextQuestion:(id)sender
 {
+    [self createAndDisplayQuestionViewForQuestionNumber:currentlyDisplayedQuestion_+1];
+    
+    if(currentlyDisplayedQuestion_ == maxQuestionsInSurvey_ - 1)
+    {
+        [sender setEnabled:NO];
+    }
+    
+    [self.backButton setEnabled:YES];
+    
+    [self updateSurveyProgress];
 }
 
 - (IBAction)previousQuestion:(id)sender
 {
+    [self createAndDisplayQuestionViewForQuestionNumber:currentlyDisplayedQuestion_-1];
+    
+    if(currentlyDisplayedQuestion_ == 0)
+    {
+        [sender setEnabled:NO];
+    }
+    
+    [self.nextButton setEnabled:YES];
+    
+    [self updateSurveyProgress];
 }
 
 #pragma mark -
@@ -100,20 +126,33 @@
 
 -(void)createAndDisplayQuestionViewForQuestionNumber:(int)inQuestionNumber
 {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    ESQuestionViewController *viewController = nil;
     
-    ESQuestionViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"QuestionView"];
+    if(inQuestionNumber >= [self.questionViewsArray count])
+    {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     
-    [viewController prepareWithQuestionAndOptionsForDetails:[[self.surveyDetailsDict valueForKey:@"Questions"] objectAtIndex:inQuestionNumber]
-     usingFont:self.surveyFont andFontColor:self.surveyFontColor];
+        viewController = [storyBoard instantiateViewControllerWithIdentifier:@"QuestionView"];
     
-    [self.questionViewsArray addObject:viewController];
+        [viewController prepareWithQuestionAndOptionsForDetails:[[self.surveyDetailsDict valueForKey:@"Questions"] objectAtIndex:inQuestionNumber]
+                                                      usingFont:self.surveyFont andFontColor:self.surveyFontColor];
+    
+        [self.questionViewsArray addObject:viewController];
+    }
+    
+    else
+    {
+        viewController = [self.questionViewsArray objectAtIndex:inQuestionNumber];
+    }
+    
+    if([[self.view subviews] containsObject:[[self.questionViewsArray objectAtIndex:currentlyDisplayedQuestion_] view]])
+    {
+        [[[self.questionViewsArray objectAtIndex:currentlyDisplayedQuestion_] view] removeFromSuperview];
+    }
     
     currentlyDisplayedQuestion_ = inQuestionNumber;
 	
     [self.view insertSubview:viewController.view atIndex:0];
-    
-    [viewController release];
 }
 
 -(void)updateUIWithUserPreferencesForSurvey
@@ -128,6 +167,11 @@
     UIImage *logoImage = [UIImage imageNamed:[self.surveyDetailsDict valueForKey:@"Logo"]];
     self.logoImageView.image = logoImage;
     
+}
+
+-(void)updateSurveyProgress
+{
+    [self.surveyProgressView setProgress:(float)(currentlyDisplayedQuestion_+1)/maxQuestionsInSurvey_ animated:YES];
 }
 
 @end

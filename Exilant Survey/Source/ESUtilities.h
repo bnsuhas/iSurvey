@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum{
+    eMultipleOptionSingleChoice = 0,
+    eMultipleOptionMultipleChoice,
+    eTextInput
+}EESQuestionTypes;
+
 @interface ESUtilities : NSObject
 
 + (UIColor *)colorFromHexString:(NSString *)hexString;

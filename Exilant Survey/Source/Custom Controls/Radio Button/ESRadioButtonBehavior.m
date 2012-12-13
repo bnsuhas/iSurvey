@@ -12,9 +12,17 @@
 
 -(void)userSelectedAnOption:(UIButton *)inSender previouslySelectedOptions:(NSArray *)inPreviouslySelectedOptions
 {
-    [inSender setSelected:YES];
+    if([inSender isSelected])
+    {
+        [inSender setSelected:NO];
+    }
     
-    [[inPreviouslySelectedOptions lastObject] setSelected:NO];
+    else
+    {
+        [inSender setSelected:YES];
+    
+        [[inPreviouslySelectedOptions lastObject] setSelected:NO];
+    }
 }
 
 @end

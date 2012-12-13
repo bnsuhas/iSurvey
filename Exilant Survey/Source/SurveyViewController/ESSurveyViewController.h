@@ -26,6 +26,8 @@
     
     int currentlyDisplayedQuestion_;
     
+    int maxQuestionsInSurvey_;
+    
     id<ESSurveyViewControllerDelegate> delegate_;
 }
 
@@ -50,5 +52,6 @@
 
 -(void)createAndDisplayQuestionViewForQuestionNumber:(int)inQuestionNumber;
 -(void)updateUIWithUserPreferencesForSurvey;
+-(void)updateSurveyProgress;
 
 @end

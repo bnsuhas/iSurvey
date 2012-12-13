@@ -257,7 +257,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="IDk-MN-hhs"/>
                                     <barButtonItem style="plain" id="bOw-XX-31H">
-                                        <progressView key="customView" opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.5" id="fzd-rd-ag7">
+                                        <progressView key="customView" opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.10000000000000003" id="fzd-rd-ag7">
                                             <rect key="frame" x="311" y="17" width="402" height="11"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         </progressView>

@@ -13,11 +13,19 @@
 
 +(UIView *)questionViewForDetails:(NSDictionary *)inQuestionDetailsDictionary
 {
-    ESCustomButtonsView *customView = [[[ESCustomButtonsView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
+    EESQuestionTypes questionType = [[inQuestionDetailsDictionary valueForKey:@"QuestionType"] intValue];
     
-    [customView createCustomButtonsForOptions:[[inQuestionDetailsDictionary valueForKey:@"Options"] valueForKey:@"Title"] isRadionButton:NO];
+    UIView *questionView = nil;
     
-    return customView;
+    if(eMultipleOptionSingleChoice == questionType || eMultipleOptionMultipleChoice == questionType)
+    {
+        questionView = [[[ESCustomButtonsView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
+    
+        [(ESCustomButtonsView *)questionView createCustomButtonsForOptions:[[inQuestionDetailsDictionary valueForKey:@"Options"] valueForKey:@"Title"]
+                                   isRadionButton:(eMultipleOptionSingleChoice == questionType)?YES:NO];
+    }
+    
+    return questionView;
 }
 
 @end
