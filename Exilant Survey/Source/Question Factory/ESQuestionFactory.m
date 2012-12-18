@@ -25,6 +25,11 @@
                                    isRadionButton:(eMultipleOptionSingleChoice == questionType)?YES:NO];
     }
     
+    if(eTextInput == questionType)
+    {
+        questionView = [[[UITextView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease];
+    }
+    
     return questionView;
 }
 
