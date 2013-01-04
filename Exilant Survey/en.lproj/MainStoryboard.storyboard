@@ -107,10 +107,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view contentMode="scaleToFill" id="f7c-a7-Iww">
+                            <containerView contentMode="scaleToFill" id="dKo-C5-9YU">
                                 <rect key="frame" x="20" y="150" width="984" height="578"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="1Da-QF-M1R" kind="embed" id="6oH-rp-jtf"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -118,7 +122,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="MwK-VG-v5v" id="5Jx-eV-Lje"/>
-                        <outlet property="optionsView" destination="f7c-a7-Iww" id="vjI-cg-ix6"/>
                         <outlet property="questionField" destination="BgR-Lr-IlX" id="h2L-WY-T5R"/>
                     </connections>
                 </viewController>
@@ -137,10 +140,24 @@
                             <view contentMode="scaleToFill" id="DbY-R5-8cg">
                                 <rect key="frame" x="48" y="232" width="928" height="406"/>
                                 <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Cbt-hn-z96">
+                                        <rect key="frame" x="0.0" y="0.0" width="928" height="406"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="2VP-Xs-EPB">
+                                                <rect key="frame" x="-8" y="0.0" width="936" height="406"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </scrollView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="k07-za-7H4">
                                         <rect key="frame" x="445" y="370" width="38" height="36"/>
                                         <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="nextPage:" destination="0oA-ja-y7J" eventType="valueChanged" id="U6K-oJ-Xh9"/>
+                                        </connections>
                                     </pageControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zdr-pJ-gWC">
                                         <rect key="frame" x="810" y="20" width="98" height="30"/>
@@ -152,7 +169,7 @@
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KCS-ET-yYo">
                                 <rect key="frame" x="444" y="638" width="136" height="63"/>
@@ -219,8 +236,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="completedSurveys" destination="oD4-5e-Lo1" id="glc-gr-N3k"/>
-                        <outlet property="graphView" destination="DbY-R5-8cg" id="dub-K3-GYW"/>
+                        <outlet property="graphScrollView" destination="Cbt-hn-z96" id="udt-CY-m9m"/>
+                        <outlet property="graphView" destination="2VP-Xs-EPB" id="kBs-IC-ejJ"/>
                         <outlet property="incompleteSurveys" destination="xOz-56-MgG" id="bj8-ST-eaQ"/>
+                        <outlet property="numberOfPages" destination="k07-za-7H4" id="3cm-mb-ieD"/>
                         <outlet property="numberOfRespondents" destination="jUd-90-QkA" id="MhG-yX-hQn"/>
                     </connections>
                 </viewController>
@@ -303,8 +322,83 @@
             </objects>
             <point key="canvasLocation" x="3924" y="-139"/>
         </scene>
+        <!--Options View Controller-->
+        <scene sceneID="YZP-PR-s6j">
+            <objects>
+                <tableViewController id="1Da-QF-M1R" customClass="ESOptionsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="ixi-c8-1Zm">
+                        <rect key="frame" x="0.0" y="0.0" width="984" height="578"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="61" id="Qgg-wv-pTB" customClass="ESOptionsTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="984" height="61"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="984" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jKg-Jx-ogF">
+                                            <rect key="frame" x="295" y="11" width="39" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" image="Radio Off.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="optionSelected:" destination="Qgg-wv-pTB" eventType="touchUpInside" id="XA2-BR-YdR"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" minimumFontSize="17" id="PJ4-A0-C6b">
+                                            <rect key="frame" x="342" y="15" width="347" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="optionTitle" destination="PJ4-A0-C6b" id="ZiO-L2-N0F"/>
+                                    <outlet property="selectionButton" destination="jKg-Jx-ogF" id="B3L-gO-7Mg"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1Da-QF-M1R" id="rQ6-68-aT9"/>
+                            <outlet property="delegate" destination="1Da-QF-M1R" id="zju-v7-zkn"/>
+                        </connections>
+                    </tableView>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gH6-5D-BjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6261" y="-44"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9vx-Sj-Z7C">
+            <objects>
+                <viewController id="J4U-02-I3d" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SzY-bc-nCw">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="deE-S1-ucM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4104" y="1243"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Radio Off.png" width="62" height="62"/>
         <image name="bar_graph.png" width="16" height="16"/>
         <image name="green_button.png" width="640" height="480"/>
         <image name="pie_graph.png" width="16" height="16"/>
@@ -313,6 +407,17 @@
         <image name="rounded_table_cell_top@2x.png" width="928" height="66"/>
     </resources>
     <classes>
+        <class className="ESOptionsTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ESOptionsTableViewCell.h"/>
+            <relationships>
+                <relationship kind="action" name="optionSelected:"/>
+                <relationship kind="outlet" name="optionTitle" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="selectionButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ESOptionsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ESOptionsViewController.h"/>
+        </class>
         <class className="ESQuestionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ESQuestionViewController.h"/>
             <relationships>
@@ -324,10 +429,13 @@
         <class className="ESSurveyDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ESSurveyDetailsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="nextPage:"/>
                 <relationship kind="action" name="startSurvey:"/>
                 <relationship kind="outlet" name="completedSurveys" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="graphScrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="graphView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="incompleteSurveys" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="numberOfPages" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="numberOfRespondents" candidateClass="UITextField"/>
             </relationships>
         </class>

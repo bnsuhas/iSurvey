@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD013B5F168458500032FF41 /* ESOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD013B5E168458500032FF41 /* ESOptionsViewController.m */; };
+		AD013B621684599D0032FF41 /* ESOptionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD013B611684599D0032FF41 /* ESOptionsTableViewCell.m */; };
 		AD1335C71667260A00F8B25D /* ESSurveyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1335C61667260A00F8B25D /* ESSurveyDetailsViewController.m */; };
 		AD1335CA1667261E00F8B25D /* ESSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1335C91667261E00F8B25D /* ESSurveyViewController.m */; };
 		AD38D4CD16802CFD0080C350 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD38D4CC16802CFD0080C350 /* libCorePlot-CocoaTouch.a */; };
@@ -28,7 +30,6 @@
 		AD547D38165F204500AA6E2C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD547D37165F204500AA6E2C /* Default@2x.png */; };
 		AD547D3A165F204500AA6E2C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD547D39165F204500AA6E2C /* Default-568h@2x.png */; };
 		AD547D3D165F204500AA6E2C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD547D3B165F204500AA6E2C /* MainStoryboard.storyboard */; };
-		ADC52DAF166F04AF00CC5B49 /* ESQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC52DAE166F04AF00CC5B49 /* ESQuestionViewController.m */; };
 		ADC52DB2166F09D200CC5B49 /* ESCustomButtonBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC52DB1166F09D200CC5B49 /* ESCustomButtonBehavior.m */; };
 		ADC83078166C9BD40018829B /* ESQuestionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC83077166C9BD40018829B /* ESQuestionFactory.m */; };
 		ADCAF4F6167EDE6D00A07E4C /* bar_graph.png in Resources */ = {isa = PBXBuildFile; fileRef = ADCAF4F4167EDE6D00A07E4C /* bar_graph.png */; };
@@ -47,6 +48,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD013B5A168446D30032FF41 /* ESQuestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESQuestionViewController.h; sourceTree = "<group>"; };
+		AD013B5B168446D30032FF41 /* ESQuestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESQuestionViewController.m; sourceTree = "<group>"; };
+		AD013B5D168458500032FF41 /* ESOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESOptionsViewController.h; sourceTree = "<group>"; };
+		AD013B5E168458500032FF41 /* ESOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESOptionsViewController.m; sourceTree = "<group>"; };
+		AD013B601684599D0032FF41 /* ESOptionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESOptionsTableViewCell.h; sourceTree = "<group>"; };
+		AD013B611684599D0032FF41 /* ESOptionsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESOptionsTableViewCell.m; sourceTree = "<group>"; };
 		AD1335C51667260A00F8B25D /* ESSurveyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSurveyDetailsViewController.h; sourceTree = "<group>"; };
 		AD1335C61667260A00F8B25D /* ESSurveyDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSurveyDetailsViewController.m; sourceTree = "<group>"; };
 		AD1335C81667261E00F8B25D /* ESSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSurveyViewController.h; sourceTree = "<group>"; };
@@ -150,8 +157,6 @@
 		AD547D37165F204500AA6E2C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AD547D39165F204500AA6E2C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AD547D3C165F204500AA6E2C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		ADC52DAD166F04AF00CC5B49 /* ESQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESQuestionViewController.h; sourceTree = "<group>"; };
-		ADC52DAE166F04AF00CC5B49 /* ESQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESQuestionViewController.m; sourceTree = "<group>"; };
 		ADC52DB1166F09D200CC5B49 /* ESCustomButtonBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESCustomButtonBehavior.m; sourceTree = "<group>"; };
 		ADC83076166C9BD40018829B /* ESQuestionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESQuestionFactory.h; sourceTree = "<group>"; };
 		ADC83077166C9BD40018829B /* ESQuestionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESQuestionFactory.m; sourceTree = "<group>"; };
@@ -191,6 +196,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD013B5C168458350032FF41 /* OptionsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD013B5D168458500032FF41 /* ESOptionsViewController.h */,
+				AD013B5E168458500032FF41 /* ESOptionsViewController.m */,
+				AD013B601684599D0032FF41 /* ESOptionsTableViewCell.h */,
+				AD013B611684599D0032FF41 /* ESOptionsTableViewCell.m */,
+			);
+			path = OptionsViewController;
+			sourceTree = "<group>";
+		};
 		AD1335C1166725A400F8B25D /* SurveyDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,8 +229,9 @@
 		AD1335C3166725A400F8B25D /* QuestionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				ADC52DAD166F04AF00CC5B49 /* ESQuestionViewController.h */,
-				ADC52DAE166F04AF00CC5B49 /* ESQuestionViewController.m */,
+				AD013B5A168446D30032FF41 /* ESQuestionViewController.h */,
+				AD013B5B168446D30032FF41 /* ESQuestionViewController.m */,
+				AD013B5C168458350032FF41 /* OptionsViewController */,
 			);
 			path = QuestionViewController;
 			sourceTree = "<group>";
@@ -592,9 +609,10 @@
 				ADDC6385166DD5EA000EAB8A /* ESCheckBoxBehavior.m in Sources */,
 				ADDC6388166DD5FF000EAB8A /* ESRadioButtonBehavior.m in Sources */,
 				ADDC6392166DF1C0000EAB8A /* ESCustomButtonsView.m in Sources */,
-				ADC52DAF166F04AF00CC5B49 /* ESQuestionViewController.m in Sources */,
 				ADC52DB2166F09D200CC5B49 /* ESCustomButtonBehavior.m in Sources */,
 				ADCCBD2C1670751B00538000 /* ESUtilities.m in Sources */,
+				AD013B5F168458500032FF41 /* ESOptionsViewController.m in Sources */,
+				AD013B621684599D0032FF41 /* ESOptionsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,6 +49,13 @@
     self.completedSurveys.text = self.selectedSurvey.numberOfCompletedSurveys.stringValue;
     
     self.incompleteSurveys.text = self.selectedSurvey.numberOfIncompleteSurveys.stringValue;
+    
+    self.graphScrollView.pagingEnabled = YES;
+    self.graphScrollView.showsHorizontalScrollIndicator = NO;
+    self.graphScrollView.showsVerticalScrollIndicator = NO;
+    
+    self.numberOfPages.numberOfPages = 5;
+    self.numberOfPages.currentPage = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,10 +71,18 @@
     [_graphView release];
     self.selectedSurveyName = nil;
     self.selectedSurvey = nil;
+    [_graphScrollView release];
+    [_graphView release];
+    [_numberOfPages release];
     [super dealloc];
 }
 
 - (IBAction)startSurvey:(id)sender
+{
+    
+}
+
+- (IBAction)nextPage:(id)sender
 {
     
 }

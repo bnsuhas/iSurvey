@@ -25,11 +25,17 @@
 
 @property (retain, nonatomic) IBOutlet UIView *graphView;
 
+@property (retain, nonatomic) IBOutlet UIScrollView *graphScrollView;
+
+@property (retain, nonatomic) IBOutlet UIPageControl *numberOfPages;
+
 @property (nonatomic, retain) NSString *selectedSurveyName;
 
 @property (nonatomic ,retain) ESSurvey *selectedSurvey;
 
 - (IBAction)startSurvey:(id)sender;
+
+- (IBAction)nextPage:(id)sender;
 
 -(NSString *)dataFilePath;
 
